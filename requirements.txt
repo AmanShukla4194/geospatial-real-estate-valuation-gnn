@@ -17,3 +17,4 @@ jupyter
 notebook
 ipykernel
 tqdm
+tabulate
