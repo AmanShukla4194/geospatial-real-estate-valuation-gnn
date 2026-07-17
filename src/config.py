@@ -84,3 +84,29 @@ REQUIRED_COLUMNS = [
     "lat",
     "long"
 ]
+
+# =============================================================================
+# Data Cleaning Configuration
+# =============================================================================
+
+OUTLIER_COLUMNS = [
+    "price",
+    "sqft_living",
+    "sqft_lot",
+    "sqft_above",
+    "sqft_basement",
+    "sqft_living15",
+    "sqft_lot15",
+]
+
+NUMERIC_VALIDATION_COLUMNS = [
+    "price",
+    "bedrooms",
+    "bathrooms",
+    "sqft_living",
+    "sqft_lot",
+    "floors",
+    "grade",
+    "lat",
+    "long",
+]

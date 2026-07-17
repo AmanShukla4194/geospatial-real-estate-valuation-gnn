@@ -50,3 +50,15 @@ data/processed/
 # Coverage
 .coverage
 htmlcov/
+
+# Reports (keep markdown reports, ignore generated images)
+reports/figures/**/*.png
+reports/figures/**/*.jpg
+reports/figures/**/*.jpeg
+
+# Processed data
+data/processed/*.csv
+
+# Raw datasets
+data/raw/*.csv
+!data/raw/README.md
