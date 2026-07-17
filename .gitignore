@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment Variables
+.env
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Machine Learning Artifacts
+models/
+checkpoints/
+*.pt
+*.pth
+*.h5
+*.ckpt
+*.onnx
+*.pkl
+*.joblib
+
+# Data (Required by Internship Instructions)
+data/raw/
+data/processed/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Python Cache
+.pytest_cache/
+.mypy_cache/
+
+# Coverage
+.coverage
+htmlcov/
