@@ -62,3 +62,8 @@ data/processed/*.csv
 # Raw datasets
 data/raw/*.csv
 !data/raw/README.md
+
+# Graph artifacts
+graph/
+*.npy
+*.joblib

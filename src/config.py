@@ -134,3 +134,11 @@ BASELINE_FEATURE_COLUMNS = [
     "years_since_renovation",
     "distance_to_city_center_km",
 ]
+
+# =============================================================================
+# Graph Configuration
+# =============================================================================
+
+K_NEAREST_NEIGHBORS = 10
+
+GRAPH_RANDOM_STATE = 42
