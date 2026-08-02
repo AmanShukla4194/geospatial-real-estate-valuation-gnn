@@ -67,3 +67,19 @@ data/raw/*.csv
 graph/
 *.npy
 *.joblib
+
+# =============================================================================
+# Spatial Embedding Configuration
+# =============================================================================
+
+EMBEDDING_DIMENSION = 32
+
+NODE2VEC_WALK_LENGTH = 20
+
+NODE2VEC_NUM_WALKS = 10
+
+NODE2VEC_CONTEXT_SIZE = 10
+
+NODE2VEC_P = 1.0
+
+NODE2VEC_Q = 1.0
