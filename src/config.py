@@ -142,3 +142,11 @@ BASELINE_FEATURE_COLUMNS = [
 K_NEAREST_NEIGHBORS = 10
 
 GRAPH_RANDOM_STATE = 42
+
+# =============================================================================
+# Graph Neural Network Configuration
+# =============================================================================
+
+NODE_FEATURE_COLUMNS = BASELINE_FEATURE_COLUMNS
+
+GRAPH_TARGET_COLUMN = TARGET_COLUMN
