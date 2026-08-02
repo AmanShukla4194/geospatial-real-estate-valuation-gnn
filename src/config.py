@@ -110,3 +110,27 @@ NUMERIC_VALIDATION_COLUMNS = [
     "lat",
     "long",
 ]
+
+# =============================================================================
+# Baseline Machine Learning Configuration
+# =============================================================================
+
+TARGET_COLUMN = "price"
+
+BASELINE_FEATURE_COLUMNS = [
+    "bedrooms",
+    "bathrooms",
+    "sqft_living",
+    "sqft_lot",
+    "floors",
+    "waterfront",
+    "view",
+    "condition",
+    "grade",
+    "sqft_above",
+    "sqft_basement",
+    "house_age",
+    "is_renovated",
+    "years_since_renovation",
+    "distance_to_city_center_km",
+]
