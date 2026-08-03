@@ -191,3 +191,13 @@ MODEL_COMPARISON_FIGURE = (
     / "figures"
     / "model_comparison.png"
 )
+
+# =============================================================================
+# Dashboard Configuration
+# =============================================================================
+
+DASHBOARD_TITLE = (
+    "Geospatial Real Estate Valuation using Graph Neural Networks"
+)
+
+DEFAULT_MAP_ZOOM = 10
