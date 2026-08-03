@@ -64,12 +64,22 @@ st.sidebar.title(
     "Navigation"
 )
 
-st.sidebar.info(
+st.sidebar.markdown(
     """
-    Geospatial Real Estate Valuation
+### Geospatial Real Estate Valuation
 
-    Week 4 Dashboard
-    """
+**Graph Neural Network Dashboard**
+
+**Dataset**
+- King County Housing Dataset
+
+**Models**
+- XGBoost
+- Graph Neural Network
+
+**Developer**
+- Aman Shukla
+"""
 )
 
 # ============================================================
