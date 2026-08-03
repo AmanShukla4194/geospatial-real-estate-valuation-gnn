@@ -163,30 +163,96 @@ def create_graph_data():
     )
 
     graph = Data(
-
         x=x,
-
         edge_index=edge_index,
-
         y=y,
+    )
+
+    # ============================================================
+    # Train / Validation / Test Split
+    # ============================================================
+
+    num_nodes = graph.num_nodes
+
+    train_size = int(0.80 * num_nodes)
+
+    validation_size = int(0.10 * num_nodes)
+
+    test_size = (
+        num_nodes
+        - train_size
+        - validation_size
+    )
+
+    generator = torch.Generator().manual_seed(42)
+
+    permutation = torch.randperm(
+        num_nodes,
+        generator=generator,
+    )
+
+    graph.train_mask = torch.zeros(
+        num_nodes,
+        dtype=torch.bool,
+    )
+
+    graph.val_mask = torch.zeros(
+        num_nodes,
+        dtype=torch.bool,
+    )
+
+    graph.test_mask = torch.zeros(
+        num_nodes,
+        dtype=torch.bool,
+    )
+
+    graph.train_mask[
+        permutation[:train_size]
+    ] = True
+
+    graph.val_mask[
+        permutation[
+            train_size:
+            train_size + validation_size
+        ]
+    ] = True
+
+    graph.test_mask[
+        permutation[
+            train_size + validation_size:
+        ]
+    ] = True
+
+    print()
+
+    print(
+        f"Nodes             : {graph.num_nodes:,}"
+    )
+
+    print(
+        f"Edges             : {graph.num_edges:,}"
+    )
+
+    print(
+        f"Features          : {graph.num_node_features}"
+    )
+
+    print(
+        f"Target Shape      : {graph.y.shape}"
     )
 
     print()
 
     print(
-        f"Nodes        : {graph.num_nodes:,}"
+        f"Training Nodes    : {graph.train_mask.sum().item():,}"
     )
 
     print(
-        f"Edges        : {graph.num_edges:,}"
+        f"Validation Nodes  : {graph.val_mask.sum().item():,}"
     )
 
     print(
-        f"Features     : {graph.num_node_features}"
-    )
-
-    print(
-        f"Target Shape : {graph.y.shape}"
+        f"Testing Nodes     : {graph.test_mask.sum().item():,}"
     )
 
     print()
@@ -199,6 +265,12 @@ def create_graph_data():
 
     return graph
 
+def build_graph_dataset():
+    """
+    Compatibility wrapper for the training pipeline.
+    """
+
+    return create_graph_data()
 
 if __name__ == "__main__":
 

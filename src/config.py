@@ -82,7 +82,7 @@ REQUIRED_COLUMNS = [
     "yr_renovated",
     "zipcode",
     "lat",
-    "long"
+    "long",
 ]
 
 # =============================================================================
@@ -114,8 +114,6 @@ NUMERIC_VALIDATION_COLUMNS = [
 # =============================================================================
 # Baseline Machine Learning Configuration
 # =============================================================================
-
-TARGET_COLUMN = "price"
 
 BASELINE_FEATURE_COLUMNS = [
     "bedrooms",
@@ -150,3 +148,31 @@ GRAPH_RANDOM_STATE = 42
 NODE_FEATURE_COLUMNS = BASELINE_FEATURE_COLUMNS
 
 GRAPH_TARGET_COLUMN = TARGET_COLUMN
+
+# =============================================================================
+# GNN Architecture
+# =============================================================================
+
+GNN_HIDDEN_CHANNELS = 64
+
+GNN_OUTPUT_CHANNELS = 1
+
+# =============================================================================
+# GNN Training Configuration
+# =============================================================================
+
+GNN_LEARNING_RATE = 0.001
+
+GNN_EPOCHS = 100
+
+GNN_WEIGHT_DECAY = 1e-5
+
+GNN_RANDOM_STATE = 42
+
+# =============================================================================
+# Model Output Paths
+# =============================================================================
+
+GNN_MODEL_PATH = MODELS_DIR / "property_gnn_model.pt"
+
+TRAINING_HISTORY_PATH = MODELS_DIR / "training_history.csv"
