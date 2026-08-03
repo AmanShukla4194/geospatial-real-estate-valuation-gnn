@@ -176,3 +176,18 @@ GNN_RANDOM_STATE = 42
 GNN_MODEL_PATH = MODELS_DIR / "property_gnn_model.pt"
 
 TRAINING_HISTORY_PATH = MODELS_DIR / "training_history.csv"
+
+# =============================================================================
+# Evaluation Reports
+# =============================================================================
+
+MODEL_COMPARISON_REPORT = (
+    REPORTS_DIR
+    / "model_comparison_summary.md"
+)
+
+MODEL_COMPARISON_FIGURE = (
+    REPORTS_DIR
+    / "figures"
+    / "model_comparison.png"
+)
