@@ -50,11 +50,11 @@ desktop.ini
 
 # ==========================================================
 # Machine Learning Artifacts
-# (Required by Internship Guidelines)
+# (Generated files - Required by Internship Guidelines)
 # ==========================================================
 
-models/
-checkpoints/
+/models/
+/checkpoints/
 
 *.pt
 *.pth
@@ -66,17 +66,22 @@ checkpoints/
 
 # ==========================================================
 # Datasets
-# (Required by Internship Guidelines)
+# (Generated datasets - Required by Internship Guidelines)
 # ==========================================================
 
-data/raw/
-data/processed/
+/data/raw/
+/data/processed/
+
+# Keep documentation if present
+!/data/raw/README.md
+!/data/processed/README.md
 
 # ==========================================================
-# Graph Files
+# Graph Artifacts
+# (Generated graph files only)
 # ==========================================================
 
-graph/
+/graph/
 
 *.npy
 
@@ -102,12 +107,11 @@ htmlcov/
 
 # ==========================================================
 # Reports
+# Ignore generated figures only.
+# Keep Markdown reports and HTML reports.
 # ==========================================================
 
-reports/figures/
-
-# Optional HTML reports
-*.html
+/reports/figures/
 
 # ==========================================================
 # Temporary Files
@@ -116,3 +120,10 @@ reports/figures/
 *.tmp
 *.bak
 *.swp
+
+# ==========================================================
+# Development Verification Files
+# ==========================================================
+
+github_files.txt
+project_tree.txt
