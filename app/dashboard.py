@@ -13,12 +13,20 @@ from __future__ import annotations
 from pathlib import Path
 import sys
 
+import streamlit as st
+
+# ============================================================
+# Project Root
+# ============================================================
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-import streamlit as st
+# ============================================================
+# Configuration
+# ============================================================
 
 from src.config import DASHBOARD_TITLE
 
@@ -31,6 +39,10 @@ from src.project_info import (
     GRAPH_MODEL,
     AUTHOR,
 )
+
+# ============================================================
+# Dashboard Components
+# ============================================================
 
 from app.components.dataset_section import (
     render_dataset_section,
@@ -75,29 +87,22 @@ st.sidebar.success(
 st.sidebar.markdown("---")
 
 st.sidebar.subheader("Dataset")
-
-st.sidebar.write(
-    DATASET_NAME
-)
+st.sidebar.write(DATASET_NAME)
 
 st.sidebar.subheader("Models")
-
 st.sidebar.write(f"• {BASELINE_MODEL}")
-
 st.sidebar.write(f"• {GRAPH_MODEL}")
 
 st.sidebar.subheader("Technology")
-
 st.sidebar.write("• Python")
-
-st.sidebar.write("• Streamlit")
-
+st.sidebar.write("• Pandas")
 st.sidebar.write("• GeoPandas")
-
+st.sidebar.write("• Scikit-learn")
+st.sidebar.write("• XGBoost")
+st.sidebar.write("• PyTorch")
 st.sidebar.write("• PyTorch Geometric")
-
+st.sidebar.write("• Streamlit")
 st.sidebar.write("• Folium")
-
 st.sidebar.write("• Plotly")
 
 st.sidebar.markdown("---")
@@ -122,19 +127,16 @@ st.markdown(
     PROJECT_DESCRIPTION
 )
 
-information_1, information_2, information_3 = st.columns(3)
+info_1, info_2, info_3 = st.columns(3)
 
-information_1.info(
-    f"📍 {DATASET_NAME}"
-)
+with info_1:
+    st.info(f"📍 {DATASET_NAME}")
 
-information_2.info(
-    f"🧠 {BASELINE_MODEL} + GNN"
-)
+with info_2:
+    st.info(f"🧠 {BASELINE_MODEL} + GNN")
 
-information_3.info(
-    "🗺 Interactive Geospatial Dashboard"
-)
+with info_3:
+    st.info("🗺 Interactive Geospatial Dashboard")
 
 st.divider()
 
