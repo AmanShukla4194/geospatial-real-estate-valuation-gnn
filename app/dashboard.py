@@ -22,6 +22,16 @@ import streamlit as st
 
 from src.config import DASHBOARD_TITLE
 
+from src.project_info import (
+    PROJECT_NAME,
+    PROJECT_SUBTITLE,
+    PROJECT_DESCRIPTION,
+    DATASET_NAME,
+    BASELINE_MODEL,
+    GRAPH_MODEL,
+    AUTHOR,
+)
+
 from app.components.dataset_section import (
     render_dataset_section,
 )
@@ -42,23 +52,15 @@ from app.components.summary_section import (
     render_summary_section,
 )
 
-
 # ============================================================
 # Streamlit Configuration
 # ============================================================
 
 st.set_page_config(
-
     page_title=DASHBOARD_TITLE,
-
     layout="wide",
-
     initial_sidebar_state="expanded",
 )
-
-# ============================================================
-# Sidebar
-# ============================================================
 
 # ============================================================
 # Sidebar
@@ -67,7 +69,7 @@ st.set_page_config(
 st.sidebar.title("🏠 Project Information")
 
 st.sidebar.success(
-    "Geospatial Real Estate Valuation Dashboard"
+    f"{PROJECT_NAME} Dashboard"
 )
 
 st.sidebar.markdown("---")
@@ -75,14 +77,14 @@ st.sidebar.markdown("---")
 st.sidebar.subheader("Dataset")
 
 st.sidebar.write(
-    "King County Housing Dataset"
+    DATASET_NAME
 )
 
 st.sidebar.subheader("Models")
 
-st.sidebar.write("• XGBoost")
+st.sidebar.write(f"• {BASELINE_MODEL}")
 
-st.sidebar.write("• Graph Neural Network")
+st.sidebar.write(f"• {GRAPH_MODEL}")
 
 st.sidebar.subheader("Technology")
 
@@ -96,42 +98,38 @@ st.sidebar.write("• PyTorch Geometric")
 
 st.sidebar.write("• Folium")
 
+st.sidebar.write("• Plotly")
+
 st.sidebar.markdown("---")
 
 st.sidebar.info(
-    "Developed by Aman Shukla"
+    f"Developed by {AUTHOR}"
 )
 
 # ============================================================
 # Header
 # ============================================================
 
-st.title("🏠 Geospatial Real Estate Valuation")
+st.title(
+    f"🏠 {PROJECT_NAME}"
+)
 
 st.caption(
-    "Interactive Machine Learning Dashboard using Graph Neural Networks"
+    PROJECT_SUBTITLE
 )
 
 st.markdown(
-"""
-This dashboard demonstrates the complete end-to-end workflow for
-predicting residential property prices using traditional Machine Learning
-and Graph Neural Networks while incorporating spatial relationships
-between neighbouring properties.
-
-Use the sections below to explore the dataset, compare model performance,
-visualize housing locations, and analyze property characteristics.
-"""
+    PROJECT_DESCRIPTION
 )
 
 information_1, information_2, information_3 = st.columns(3)
 
 information_1.info(
-    "📍 King County Housing Dataset"
+    f"📍 {DATASET_NAME}"
 )
 
 information_2.info(
-    "🧠 XGBoost + Graph Neural Network"
+    f"🧠 {BASELINE_MODEL} + GNN"
 )
 
 information_3.info(
