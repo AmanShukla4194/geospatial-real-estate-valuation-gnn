@@ -15,6 +15,10 @@ import streamlit as st
 
 def render_summary_section():
 
+    # ==========================================================
+    # Project Overview
+    # ==========================================================
+
     st.header("📄 Project Overview")
 
     st.markdown(
@@ -80,54 +84,74 @@ only on traditional tabular features.
     st.markdown("---")
 
     # ==========================================================
-    # Project Workflow
+    # Machine Learning Workflow
     # ==========================================================
 
     st.subheader("🔄 Machine Learning Workflow")
 
-    workflow = st.columns(10)
-
-    steps = [
-
+    workflow = [
         "📥\nData",
-
         "📊\nEDA",
-
         "🧹\nCleaning",
-
         "⚙️\nFeatures",
-
         "🌲\nXGBoost",
-
-        "🕸️\nKNN Graph",
-
+        "🕸️\nKNN\nGraph",
         "📍\nEmbeddings",
-
         "🧠\nGNN",
-
         "📈\nEvaluation",
-
         "🖥️\nDashboard",
-
     ]
 
-    for column, step in zip(workflow, steps):
+    cols = st.columns(19)
 
-        with column:
+    col_index = 0
+
+    for i, step in enumerate(workflow):
+
+        with cols[col_index]:
 
             st.markdown(
                 f"""
-    <div style="text-align:center;
-    padding:12px;
-    border:1px solid #d9d9d9;
-    border-radius:10px;
-    font-size:14px;
-    font-weight:bold;">
-    {step}
-    </div>
-    """,
-            unsafe_allow_html=True,
-        )
+<div style="
+border:1px solid #d9d9d9;
+border-radius:12px;
+padding:18px 8px;
+text-align:center;
+font-weight:600;
+font-size:18px;
+height:95px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:white;
+">
+{step.replace(chr(10), "<br>")}
+</div>
+""",
+                unsafe_allow_html=True,
+            )
+
+        col_index += 1
+
+        if i != len(workflow) - 1:
+
+            with cols[col_index]:
+
+                st.markdown(
+                    """
+<div style="
+text-align:center;
+font-size:34px;
+padding-top:25px;
+font-weight:bold;
+">
+➜
+</div>
+""",
+                    unsafe_allow_html=True,
+                )
+
+            col_index += 1
 
     st.markdown("---")
 
@@ -139,50 +163,82 @@ only on traditional tabular features.
 
     stat1, stat2, stat3, stat4 = st.columns(4)
 
-    stat1.metric(
-        "Dataset",
-        "21,613 Houses",
-    )
+    with stat1:
 
-    stat2.metric(
-        "Features",
-        "27",
-    )
+        st.markdown(
+            """
+##### Dataset
 
-    stat3.metric(
-        "Models",
-        "2",
-    )
+# 21,613
 
-    stat4.metric(
-        "Framework",
-        "PyTorch Geometric",
-    )
+### Houses
+"""
+        )
 
+    with stat2:
+
+        st.metric(
+            "Features",
+            "27",
+        )
+
+    with stat3:
+
+        st.metric(
+            "Models",
+            "2",
+        )
+
+    with stat4:
+
+        st.markdown(
+            """
+##### Framework
+
+# PyTorch
+
+### Geometric
+"""
+        )
 
     st.markdown("---")
+
+    # ==========================================================
+    # Repository Overview
+    # ==========================================================
 
     st.subheader("📚 Repository Overview")
 
     repository_1, repository_2, repository_3 = st.columns(3)
 
-    repository_1.metric(
-    "GitHub Issues Completed",
-    "17"
-    )
+    with repository_1:
 
-    repository_2.metric(
-    "Development Weeks",
-    "4"
-    )
+        st.metric(
+            "GitHub Issues Completed",
+            "17",
+        )
 
-    repository_3.metric(
-    "Primary Framework",
-    "PyTorch Geometric"
-    )
+    with repository_2:
+
+        st.metric(
+            "Development Weeks",
+            "4",
+        )
+
+    with repository_3:
+
+        st.markdown(
+            """
+##### Primary Framework
+
+## PyTorch
+
+### Geometric
+"""
+        )
 
     st.markdown("---")
 
     st.caption(
-    "Version 1.0 • Geospatial Real Estate Valuation using Graph Neural Networks • Developed by Aman Shukla"
+        "Version 1.0 • Geospatial Real Estate Valuation using Graph Neural Networks • Developed by Aman Shukla"
     )
