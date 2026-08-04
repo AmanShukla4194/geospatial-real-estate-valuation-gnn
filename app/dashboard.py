@@ -60,42 +60,82 @@ st.set_page_config(
 # Sidebar
 # ============================================================
 
-st.sidebar.title(
-    "Navigation"
+# ============================================================
+# Sidebar
+# ============================================================
+
+st.sidebar.title("🏠 Project Information")
+
+st.sidebar.success(
+    "Geospatial Real Estate Valuation Dashboard"
 )
 
-st.sidebar.markdown(
-    """
-### Geospatial Real Estate Valuation
+st.sidebar.markdown("---")
 
-**Graph Neural Network Dashboard**
+st.sidebar.subheader("Dataset")
 
-**Dataset**
-- King County Housing Dataset
+st.sidebar.write(
+    "King County Housing Dataset"
+)
 
-**Models**
-- XGBoost
-- Graph Neural Network
+st.sidebar.subheader("Models")
 
-**Developer**
-- Aman Shukla
-"""
+st.sidebar.write("• XGBoost")
+
+st.sidebar.write("• Graph Neural Network")
+
+st.sidebar.subheader("Technology")
+
+st.sidebar.write("• Python")
+
+st.sidebar.write("• Streamlit")
+
+st.sidebar.write("• GeoPandas")
+
+st.sidebar.write("• PyTorch Geometric")
+
+st.sidebar.write("• Folium")
+
+st.sidebar.markdown("---")
+
+st.sidebar.info(
+    "Developed by Aman Shukla"
 )
 
 # ============================================================
 # Header
 # ============================================================
 
-st.title(
-    DASHBOARD_TITLE
+st.title("🏠 Geospatial Real Estate Valuation")
+
+st.caption(
+    "Interactive Machine Learning Dashboard using Graph Neural Networks"
 )
 
 st.markdown(
-    """
-    Interactive dashboard demonstrating the complete
-    machine learning pipeline developed during the
-    Geospatial Real Estate Valuation internship project.
-    """
+"""
+This dashboard demonstrates the complete end-to-end workflow for
+predicting residential property prices using traditional Machine Learning
+and Graph Neural Networks while incorporating spatial relationships
+between neighbouring properties.
+
+Use the sections below to explore the dataset, compare model performance,
+visualize housing locations, and analyze property characteristics.
+"""
+)
+
+information_1, information_2, information_3 = st.columns(3)
+
+information_1.info(
+    "📍 King County Housing Dataset"
+)
+
+information_2.info(
+    "🧠 XGBoost + Graph Neural Network"
+)
+
+information_3.info(
+    "🗺 Interactive Geospatial Dashboard"
 )
 
 st.divider()
